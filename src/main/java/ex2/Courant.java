@@ -17,6 +17,11 @@ public class Courant extends CompteBancaire {
 		
 	}
 	
+	
+	/**
+	 * fonction qui débite un montant du compte 
+	 * SI le solde ne passe pas en dessous du découvert autorisé
+	 */
 	@Override
 	public void debiterMontant(double montant) {
 		if (this.solde - montant > -(this.decouvert)){
@@ -25,11 +30,19 @@ public class Courant extends CompteBancaire {
 
 	}
 
+	/**
+	 * getter for découvert
+	 * @return le découvert autorisé
+	 */
 	
 	public double getDecouvert() {
 		return decouvert;
 	}
 
+	/**
+	 * Setter
+	 * @param change le découvert autorisé du compte
+	 */
 	public void setDecouvert(double decouvert) {
 		this.decouvert = decouvert;
 	}

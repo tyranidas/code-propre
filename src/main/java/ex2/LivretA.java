@@ -17,19 +17,38 @@ public class LivretA extends CompteBancaire {
 		this.tauxRemuneration = tauxRemuneration;
 	}
 	
+	/**
+	 * methode qui permet d'appliquer la rémunération annuelle en fonction de son taux
+	 */
+	
 	public void appliquerRemuAnnuelle(){
 		
 			this.solde += solde*tauxRemuneration/100;
 		
 	}
 	
-	
+	/**
+	 * fonction qui débite un montant du compte 
+	 * SI le solde ne devient pas négatif
+	 */
 	@Override
 	public void debiterMontant(double montant) {
-		if (this.solde - montant > 0){
+		if (this.solde - montant >= 0){
 			this.solde = solde - montant;
 		}		
 
+	}
+	/** Getter for tauxRemuneration
+	 * @return the tauxRemuneration
+	 */
+	public double getTauxRemuneration() {
+		return tauxRemuneration;
+	}
+	/** Setter
+	 * @param tauxRemuneration the tauxRemuneration to set
+	 */
+	public void setTauxRemuneration(double tauxRemuneration) {
+		this.tauxRemuneration = tauxRemuneration;
 	}
 
 
