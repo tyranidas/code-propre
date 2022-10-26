@@ -3,10 +3,10 @@ package ex5;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Caisse {
+public abstract class Caisse {
 
-	private String nom;
-	private List<Item> items;
+	protected String nom;
+	protected List<Item> items;
 
 	/** Constructeur
 	 * @param nom
@@ -17,6 +17,8 @@ public class Caisse {
 		this.items = new ArrayList<>();
 	}
 
+	public void filterItem(Item item) {}
+	
 	/** Getter pour l'attribut nom
 	 * @return the nom
 	 */

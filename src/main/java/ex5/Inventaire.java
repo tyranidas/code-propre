@@ -3,34 +3,52 @@ package ex5;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Manuel
+ *
+ */
 public class Inventaire {
 
+	/**
+	 * List des caisses pour l'inventaire
+	 */
 	private List<Caisse> caisses;
 
+	/**
+	 * création de 3 caisses à l'instanciation
+	 */
 	public Inventaire() {
 		caisses = new ArrayList<>();
-		caisses.add(new Caisse("Petits objets"));
-		caisses.add(new Caisse("Moyens objets"));
-		caisses.add(new Caisse("Grands objets"));
+		caisses.add(new CaissePetite("Petits objets"));
+		caisses.add(new CaisseMoyenne("Moyens objets"));
+		caisses.add(new CaisseGrande("Grands objets"));
 	}
 
+	/**
+	 * ranger les Items dans les caisses selon leur poids
+	 * @param item
+	 */
 	public void addItem(Item item) {
 
-		//TODO Faites évoluer ce code (idée: c'est le caisse qui doit "savoir" si elle peut accepter un objet ou non)
-		if (item.getPoids() < 5) {
-			caisses.get(0).getItems().add(item);
+		for(Caisse c : caisses)
+		{
+			c.filterItem(item);
 		}
-		if (item.getPoids() >= 5 && item.getPoids() <= 20) {
-			caisses.get(1).getItems().add(item);
-		}
-		if (item.getPoids() >= 20) {
-			caisses.get(2).getItems().add(item);
-		}
+		
 	}
-
+	
+	/**
+	 * afficher la taille de l'inventaire
+	 * @return
+	 */
 	public int taille() {
 		
-		//TODO faites évoluer ce code.
-		return caisses.get(0).getItems().size() + caisses.get(1).getItems().size() + caisses.get(2).getItems().size();
+		int taille = 0;
+		for(Caisse c : caisses)
+		{
+			System.out.println(c.getNom()+" contient "+c.getItems().size()+" objets");
+			taille += c.getItems().size();
+		}
+		return taille;
 	}
 }
