@@ -1,32 +1,56 @@
 package ex3;
 
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Manuel
+ *
+ */
 public class Zoo {
-
-	private String nom;
-	private List<String> types;
-	private List<String> noms;
-	private List<String> comportements;
 	
+	/**
+	 * Nom = nom du Zoo
+	 * animals = liste des différents animaux composant le zoo
+	 */
+	private String nom;
+	private List<Animal> animals;
+	
+	
+	/**
+	 * Ce constructeur est utilisé pour instancier un zoo via son nom
+	 * @param nom = de type String
+	 * la liste des animaux est créée vide
+	 */
 	public Zoo(String nom){
 		this.nom = nom;
+		this.animals = new ArrayList<Animal>();
 	}
 	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		types.add(typeAnimal);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
+	/**
+	 * Une méthode pour ajouter un animal à la liste
+	 * @param nom le nom de la variable animal
+	 */
+	public void ajouterAnimal(Animal nom) {
+		this.animals.add(nom);
 	}
 	
+	/**
+	 *Une méthode pour afficher chaque animaux du Zoo 
+	 */
 	public void afficherListeAnimaux(){
-		for (int i=0; i<types.size(); i++) {
-			System.out.println(noms.get(i)+" "+types.get(i)+" "+comportements.get(i));
+		for (int i=0; i<taille(); i++) {
+			System.out.println(animals.get(i));
 		}
 	}
 	
+	
+	/**
+	 * une méthode pour connaitre le nombre d'animaux différents dans le zoo
+	 * @return int
+	 */
 	public int taille() {
-		return types.size();
+		return this.animals.size();
 	}
 
 	/** Getter for nom
@@ -42,4 +66,22 @@ public class Zoo {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
+	/** Getter for Animal
+	 * @return the animal
+	 */
+
+	public List<Animal> getAnimals() {
+		return animals;
+	}
+
+	/** Setter
+	 * @param animals the animals to set
+	 */
+
+	public void setAnimals(List<Animal> animals) {
+		this.animals = animals;
+	}
+	
+	
 }
