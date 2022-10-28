@@ -19,9 +19,9 @@ public class Inventaire {
 	 */
 	public Inventaire() {
 		caisses = new ArrayList<>();
-		caisses.add(new CaissePetite("Petits objets"));
-		caisses.add(new CaisseMoyenne("Moyens objets"));
-		caisses.add(new CaisseGrande("Grands objets"));
+		caisses.add(new Caisse("Petits objets", 0.5 ,5.0));
+		caisses.add(new Caisse("Moyens objets", 5.0,20.0));
+		caisses.add(new Caisse("Grands objets", 20.0, 100.0));
 	}
 
 	/**
